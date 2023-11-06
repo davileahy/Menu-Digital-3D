@@ -28,6 +28,7 @@ function alergiaInDB() {
         Loading
         db.collection("usuários").doc(currentUserUid).set({alergias}).then(() => {
             window.alert('Alergias salvas com sucesso!')
+            window.location.href = "../home/home.html"
         }).catch(error => {
             console.log(error)
         })
