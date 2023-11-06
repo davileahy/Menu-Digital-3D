@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alergias</title>
+    <link rel="stylesheet" href="../global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Selecione suas alergias</h1>
+    <form id="alergias-form">
+        <label>
+            <input type="checkbox" name="alergia" value="amendoim"> Amendoim
+        </label>
+        <label>
+            <input type="checkbox" name="alergia" value="leite"> Leite
+        </label>
+        <label>
+            <input type="checkbox" name="alergia" value="camarão"> Camarão
+        </label>
+
+        <button type="button" id="submit" onclick="alergiaInDB( )" >Concluir</button>
+    </form>
+
+    
+</body>
+<script src="../loading/loading.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
+<script src="../firebase.js"></script>
+<script src="alergias.js"></script>
+</html>
