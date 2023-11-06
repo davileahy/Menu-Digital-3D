@@ -35,6 +35,7 @@ function cadastro() {
         })
         
     }).catch(error => {
+        removeLoading()
         window.alert(error)
     })
 }
