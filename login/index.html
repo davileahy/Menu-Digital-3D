@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../global.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap" rel="stylesheet">
+
+    <title>Login - Menu Digital 3D</title>
+</head>
+
+<body>
+    <header>
+        <div class="icon">
+            <img src="../imagens/favicon.ico" alt="Icon">
+        </div>
+
+        <div class="welcomeTitle">
+            <h1>Menu Digital 3D</h1>
+            <h2>Bem vindo!</h2>
+        </div>
+    </header>
+
+    <main class="centralize">
+        <form>
+            <div class="centralize">
+                <h1>
+                    <strong>Registrar</strong>
+                </h1>
+            </div>
+            <label>Sign in with</label>
+            <div>
+                <button class="FacebookButton" type="button">Facebook</button>
+                <button class="googleButton" type="button">
+                    <img class="google-icon" src="https://www.svgrepo.com/show/475656/google-color.svg" height="18px" loading="lazy" alt="google logo">
+                    <span class="google-icon">Google</span>
+                </button>
+            </div>
+
+            <div>
+                <div><label>Email</label></div>
+                <input type="email" name="" id="email">
+            </div>
+
+            <div>
+                <div><lable>Senha</lable></div>
+                <input type="password" name="" id="password">
+                
+            </div>
+            
+            <div>
+                <div><label>Confirmar senha</label></div>
+                <input type="password" name="" id="confirmPassword">
+            </div>
+
+            <div>
+                <button type="button" onclick="createAccount()">Sign in</button>
+            </div>
+            
+        </form>
+    </main>
+</body>
+
+        <!-- SCRIPTS -->
+
+<!-- link do loading -->
+<script src="../loading/loading.js"></script>
+
+<!-- Conecta ao banco de dados -->
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore-compat.js"></script>
+<!-- Autenticação -->
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
+
+<!-- Conectando ao firebase -->
+<script src="../firebase.js"></script>
+
+<!-- link dos script.js -->
+<script src="script.js"></script>
+
+</html>

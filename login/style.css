@@ -1,0 +1,28 @@
+input {
+    border-radius: 5px;
+    border-color: #FF8A00;
+    height: 20px;
+}
+
+form {
+    background-color: white;
+    border-radius: 10px;
+    border-color: black;
+    height: 300px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button {
+    text-align: center;
+}
+
+.welcomeTitle {
+    text-align: center;
+}
+
+.icon {
+    position: fixed;
+}
