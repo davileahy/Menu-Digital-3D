@@ -21,21 +21,30 @@ function createAccount() {
 function cadastro() {
     const email = form.email().value
     const password = form.password().value
+
+    if (!email || !password) {
+        window.alert("Preencha todos os campos antes de continuar.")
+        return
+    }
+
+
     Loading()
+
+    
     firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
         const user = userCredential.user
         const uid = user.uid    
         removeLoading()
+
         db.collection('usuários').doc(uid).set({}).then(() =>{
             window.alert("Login efetuado com sucesso!")
             window.location.href = "alergias.html"
         }).catch(error => {
-            removeLoading()
             window.alert(error)
+            removeLoading()
         })
         
     }).catch(error => {
-        removeLoading()
         window.alert(error)
     })
 }
