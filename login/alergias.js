@@ -5,17 +5,17 @@ firebase.auth().onAuthStateChanged((user) => {
 
         console.log("id do usuário logado: ", currentUserUid)
     }else {
-        console.log("Nenhum usuário autenticado.");
+        console.log("Nenhum usuário autenticado.")
     }
 })
-const form = document.getElementById('alergias-form');
+const form = document.getElementById('alergias-form')
 
 const db = firebase.firestore()
 
 
 function alergiaInDB() {
     const alergias = {};
-    const alergiaCheckboxes = form.querySelectorAll('input[type="checkbox"]:checked');
+    const alergiaCheckboxes = form.querySelectorAll('input[type="checkbox"]:checked')
 
     
     alergiaCheckboxes.forEach(checkbox => {
@@ -25,10 +25,16 @@ function alergiaInDB() {
     });
 
     if (Object.keys(alergias).length > 0) {
-        db.collection("usuários").doc(currentUserUid).set({alergias})
+        Loading
+        db.collection("usuários").doc(currentUserUid).set({alergias}).then(() => {
+            window.alert('Alergias salvas com sucesso!')
+        }).catch(error => {
+            console.log(error)
+        })
         
-        window.alert('Alergias salvas com sucesso!');
+        
+        
     } else {
-        window.alert('Selecione pelo menos uma alergia antes de continuar.');
+        window.alert('Selecione pelo menos uma alergia antes de continuar.')
     }
 }

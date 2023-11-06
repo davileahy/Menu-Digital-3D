@@ -30,6 +30,7 @@ function cadastro() {
             window.alert("Login efetuado com sucesso!")
             window.location.href = "alergias.html"
         }).catch(error => {
+            removeLoading()
             window.alert(error)
         })
         
