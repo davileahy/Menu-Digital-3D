@@ -1,26 +1,67 @@
+:root {
+    font-family: Nunito;
+}
+
+body {
+    background-color: #FF8A00;
+    color: #434343;
+}
+
 input {
+    background-color: #DCDCDC;
     border-radius: 5px;
-    border-color: #FF8A00;
+    border-style: none;
     height: 20px;
 }
 
 form {
     background-color: white;
     border-radius: 10px;
-    border-color: black;
-    height: 300px;
+    height: 400px;
     width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 button {
     text-align: center;
+    border-style: hidden;
+    border-radius: 5px;
+    color: white;
+    background-color: #FF8A00;
+}
+
+.botaoFinalizar {
+    width: 350px;
+    height: 50px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.formContent input, label, button {
+    padding: 5px;
+    margin: 5px;
 }
 
 .welcomeTitle {
     text-align: center;
+}
+
+.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .icon {

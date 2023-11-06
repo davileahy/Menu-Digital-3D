@@ -25,47 +25,47 @@
             <h2>Bem vindo!</h2>
         </div>
     </header>
-
+    
     <main class="centralize">
         <form>
-            <div class="centralize">
+            <div>
                 <h1>
                     <strong>Registrar</strong>
                 </h1>
             </div>
-            <label>Sign in with</label>
-            <div>
-                <button class="FacebookButton" type="button">Facebook</button>
-                <button class="googleButton" type="button">
-                    <img class="google-icon" src="https://www.svgrepo.com/show/475656/google-color.svg" height="18px" loading="lazy" alt="google logo">
-                    <span class="google-icon">Google</span>
-                </button>
-            </div>
-
-            <div>
-                <div><label>Email</label></div>
-                <input type="email" name="" id="email">
-            </div>
-
-            <div>
-                <div><lable>Senha</lable></div>
-                <input type="password" name="" id="password">
-                
-            </div>
             
-            <div>
-                <div><label>Confirmar senha</label></div>
-                <input type="password" name="" id="confirmPassword">
-            </div>
+            <div class="formContent">
+                
+                <div>
+                    
+                    <button class="FacebookButton" type="button">Facebook</button>
+                    <button class="googleButton" type="button">
+                        <img class="google-icon" src="https://www.svgrepo.com/show/475656/google-color.svg" height="18px" loading="lazy" alt="google logo">
+                    </button>
+                </div>
+                <div>
+                    <div><label>Email:</label></div>
+                    <input type="email" name="" id="email">
+                </div>
+                <div>
+                    <div><label>Senha:</label></div>
+                    <input type="password" name="" id="password">
+                
+                </div>
+                
+                <div>
+                    <div><label>Confirmar senha:</label></div>
+                    <input type="password" name="" id="confirmPassword">
+                </div>
+                <div class="botaoFinalizar">
+                    <button type="button" onclick="createAccount()">Finalizar cadastro</button>
+                </div>
 
-            <div>
-                <button type="button" onclick="createAccount()">Sign in</button>
             </div>
             
         </form>
     </main>
 </body>
-
         <!-- SCRIPTS -->
 
 <!-- link do loading -->
