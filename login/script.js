@@ -1,6 +1,7 @@
 const db = firebase.firestore()
 
 const form = {
+    name: () => document.getElementById('name'),
     email: () => document.getElementById('email'),
     password: () => document.getElementById('password'),
     confirmPassword: () => document.getElementById('confirmPassword')
@@ -19,6 +20,7 @@ function createAccount() {
 
 }
 function cadastro() {
+    const name = form.name().value
     const email = form.email().value
     const password = form.password().value
 
@@ -27,9 +29,7 @@ function cadastro() {
         return
     }
 
-
     Loading()
-
     
     firebase.auth().createUserWithEmailAndPassword(email, password).then((userCredential) => {
         const user = userCredential.user
