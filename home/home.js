@@ -1,17 +1,5 @@
 const db = firebase.firestore()
 
-addInScreen()
-
-function addInScreen() {
-    db.collection("Restaurantes").get().then(snapshot => {
-        const restaurantes = snapshot.docs.map(doc => doc.data())
-  
-        add(restaurantes)
-    }).catch(error => {
-        console.error(error)
-      })
-}
-    
 function add(restaurantes) {
     
     restaurantes.forEach((restaurante) => {
@@ -36,6 +24,19 @@ function add(restaurantes) {
         
         lista.appendChild(li)
     })
-    
-  
 }
+
+function addInScreen() {
+    db.collection("Restaurantes").get().then(snapshot => {
+        const restaurantes = snapshot.docs.map(doc => doc.data())
+        console.log(restaurantes)
+        add(restaurantes)
+
+    }).catch(error => {
+        console.error("Deu ruim")
+      })
+}
+
+addInScreen()
+
+    
