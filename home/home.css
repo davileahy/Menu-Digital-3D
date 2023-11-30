@@ -1,19 +1,53 @@
-.listaRestaurantes ul {
-    display: flex;
+.listaRestaurantes {
     background-color: white;
-    border-radius: 5px;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     flex-direction: column;
-    width: 150px;
-    height: 150px;
+    text-align: center;
+    width: 25%;
 }
 
-.listaRestaurantes h1,img,li,a {
-    text-decoration: none;
-    font-size: 16px;
+.listaRestaurantes ul {
     list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0%;
 }
 
-.listaRestaurantes:hover {
-    transition: 0.2s ease-in-out; 
-    translate: 5px;
+.listaRestaurantes li {
+    background-color: rgb(0, 131, 131);
+    padding: 50px;
+    margin: 5px;
+    border-radius: 10px;
+    justify-content: center;
+    transition: 0.5s;
+    width: 50%;
+    font-size: x-large;
+}
+
+.listaRestaurantes li:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    transform: translateX(5px);
+}
+
+.homeText {
+    display: inline-block;
+    text-align: center;
+    background-color: white;
+    border-radius: 25px;
+    margin: 50px;
+}
+
+.contain {
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    text-align: center;
 }

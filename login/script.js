@@ -36,7 +36,7 @@ function cadastro() {
         const uid = user.uid    
         removeLoading()
 
-        db.collection('usuários').doc(uid).set({}).then(() =>{
+        db.collection('users').doc(uid).set({}).then(() =>{
             window.alert("Login efetuado com sucesso!")
             window.location.href = "alergias.html"
         }).catch(error => {
