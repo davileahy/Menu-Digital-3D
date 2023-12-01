@@ -30,12 +30,52 @@ function formatarCampo(campo, valor) {
 // Função para lidar com objetos aninhados
 function formatarObjeto(obj) {
     return Object.entries(obj).map(([key, value]) => {
+        // Se a chave for 'cardapio', exiba de maneira diferente
+        if (key === 'cardapio') {
+            return `${key}: ${formatarCardapio(value)}`;
+        }
+
         // Se o valor do objeto for um objeto, formate recursivamente
         if (typeof value === 'object') {
             return `${key}: { ${formatarObjeto(value)} }`;
         }
+
         return `${key}: ${value}`;
     }).join(', ');
+}
+
+// Função para formatar o campo 'cardapio'
+function formatarCardapio(cardapio) {
+    return Object.entries(cardapio).map(([categoria, itens]) => {
+        const itensFormatados = Object.entries(itens).map(([item, detalhes]) => {
+            const detalhesFormatados = Object.entries(detalhes).map(([chave, valor]) => {
+                return `${chave}: ${valor == true ? 'Sim' : (valor == false ? 'Não' : valor)}`;
+            }).join(', ');
+
+            return `${item}: { ${detalhesFormatados} }`;
+        }).join('\n');
+
+        return `${categoria}: { ${itensFormatados} }`;
+    }).join('\n');
+}
+
+// Função para exibir detalhes progressivamente
+function exibirDetalhesProgressivamente(container, dados) {
+    Object.entries(dados).forEach(([campo, valor]) => {
+        const paragrafo = document.createElement('p');
+        container.appendChild(paragrafo);
+
+        // Se o valor for um objeto, cria um submenu
+        if (typeof valor === 'object') {
+            paragrafo.textContent = `${campo}:`;
+            const submenuContainer = document.createElement('div');
+            container.appendChild(submenuContainer);
+            exibirDetalhesProgressivamente(submenuContainer, valor);
+        } else {
+            // Se não for um objeto, exibe o valor diretamente
+            paragrafo.textContent = `${campo}: ${valor}`;
+        }
+    });
 }
 
 // Função para alternar a exibição/ocultação dos detalhes de um documento
@@ -51,18 +91,15 @@ function toggleDetalhes(documentoId) {
         detalhesDiv.innerHTML = '';
 
         // Recupera o documento específico
-        db.collection('restaurantes').doc(documentoId).get()
+        db.collection('restaurantes')
+            .doc(documentoId)
+            .get()
             .then((doc) => {
                 if (doc.exists) {
                     const dados = doc.data();
 
-                    // Exibe os campos do documento
-                    Object.keys(dados).forEach((campo) => {
-                        const paragrafo = document.createElement('p');
-                        const valorFormatado = formatarCampo(campo, dados[campo]);
-                        paragrafo.textContent = `${campo}: ${valorFormatado}`;
-                        detalhesDiv.appendChild(paragrafo);
-                    });
+                    // Exibe os campos do documento progressivamente
+                    exibirDetalhesProgressivamente(detalhesDiv, dados);
 
                     // Atualiza o ID do documento atualmente aberto
                     detalhesDiv.dataset.currentDocId = documentoId;
@@ -76,8 +113,6 @@ function toggleDetalhes(documentoId) {
     }
 }
 
-// Restante do seu código permanece inalterado...
-
 // Recuperar documentos da coleção
 db.collection('restaurantes').get()
     .then((querySnapshot) => {
@@ -89,4 +124,34 @@ db.collection('restaurantes').get()
     })
     .catch((error) => {
         console.error('Erro ao recuperar documentos:', error);
+    });
+
+const novoRestaurante = {
+    nome: "Nome do Restaurante",
+    campo1: valor1,
+    campo2: valor2,
+    // Adicione outros campos conforme necessário
+    };
+    
+    db.collection('restaurantes').doc('novoDocumentoId').set(novoRestaurante)
+    .then(() => {
+        console.log('Novo restaurante adicionado com sucesso!');
+    })
+    .catch((error) => {
+        console.error('Erro ao adicionar novo restaurante:', error);
+    });
+
+const restauranteId = 'ID_DO_SEU_RESTAURANTE';
+const camposParaAdicionar = {
+    campo3: valor3,
+    campo4: valor4,
+    // Adicione outros campos conforme necessário
+};
+
+db.collection('restaurantes').doc(restauranteId).update(camposParaAdicionar)
+    .then(() => {
+    console.log('Campos adicionados/atualizados com sucesso!');
+    })
+    .catch((error) => {
+    console.error('Erro ao adicionar/atualizar campos:', error);
     });
